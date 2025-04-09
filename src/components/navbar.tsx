@@ -15,9 +15,9 @@ const navItems: NavItemType[] = [
 const Navbar = () => {
     const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
     return (
-        <nav className="absolute left-1/2  -translate-x-1/2  mt-8 w-full max-w-xl z-50 rounded-2xl bg-white/10 backdrop-blur-md shadow-md   ">
+        <nav className="absolute left-1/2  -translate-x-1/2  mt-8 w-full max-w-sm z-50  bg-white/5 backdrop-blur-xs shadow-md   ">
             <div className="px-4 py-3 flex justify-center items-center">
-                <ul className="flex space-x-6 text-[#fafaff] font-bold">
+                <ul className="flex space-x-6 text-[#fafaff] font-md">
                     {navItems.map((item, index) => {
                         return (
                             <li

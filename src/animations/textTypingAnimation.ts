@@ -1,16 +1,19 @@
 import gsap from "gsap";
 
-export function textTypingAnimation(target: HTMLElement) {
+export function textTypingAnimation(
+    target: HTMLElement,
+    options?: { duration?: number; stagger?: number }
+) {
     const letters = target.querySelectorAll("span");
     gsap.fromTo(
         letters,
-        { opacity: 0, y: 20 },
+        { opacity: 0 },
         {
             opacity: 1,
             y: 0,
-            duration: 0.5,
+            duration: options?.duration || 1000,
             ease: "power2.out",
-            stagger: 0.05,
+            stagger: options?.stagger || 0.05,
         }
     );
 }

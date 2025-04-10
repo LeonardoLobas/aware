@@ -19,7 +19,7 @@ const Home = () => {
         >
             <div
                 ref={textRef}
-                className="text-[#fafaff] text-8xl font-medium flex flex-wrap"
+                className="text-[#fafaff]  text-8xl font-medium flex flex-wrap"
             >
                 {text.split("").map((char, index) => (
                     <span key={index} className="inline-block">

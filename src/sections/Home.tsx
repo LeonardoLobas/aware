@@ -2,35 +2,15 @@ import { useEffect, useRef } from "react";
 import { textTypingAnimation } from "../animations/textTypingAnimation";
 
 const Home = () => {
-    const line1Ref = useRef<HTMLDivElement>(null);
-    const line2Ref = useRef<HTMLDivElement>(null);
-    const line3Ref = useRef<HTMLDivElement>(null);
+    const textRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const animateSequentially = async () => {
-            if (line1Ref.current) {
-                await textTypingAnimation(line1Ref.current, {
-                    duration: 0.3,
-                    stagger: 0.05,
-                });
-            }
-
-            if (line2Ref.current) {
-                await textTypingAnimation(line2Ref.current, {
-                    duration: 0.3,
-                    stagger: 0.05,
-                });
-            }
-
-            if (line3Ref.current) {
-                await textTypingAnimation(line3Ref.current, {
-                    duration: 0.3,
-                    stagger: 0.05,
-                });
-            }
-        };
-
-        animateSequentially();
+        if (textRef.current) {
+            textTypingAnimation(textRef.current, {
+                duration: 0.05,
+                stagger: 0.05,
+            });
+        }
     }, []);
 
     return (
@@ -39,7 +19,7 @@ const Home = () => {
             className="min-h-screen w-full  bg-gradient-to-bl from-[#262626] to-[#989797] px-14 flex flex-col items-center justify-center"
         >
             <div
-                ref={line1Ref}
+                ref={textRef}
                 className="text-[#fafaff] text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium max-w-[90vw] w-full text-center break-words leading-tight"
             >
                 {"MAIS LEADS,MAIS VENDAS.".split("").map((char, index) => (

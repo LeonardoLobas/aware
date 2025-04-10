@@ -12,7 +12,7 @@ export function textTypingAnimation(
             opacity: 1,
             y: 0,
             duration: options?.duration || 1000,
-            ease: "power2.out",
+            ease: "power4.out",
             stagger: options?.stagger || 0.05,
         }
     );

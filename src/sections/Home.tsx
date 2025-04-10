@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { textTypingAnimation } from "../animations/textTypingAnimation";
 
 const text = "Mais leads, mais vendas. Um novo nível com";

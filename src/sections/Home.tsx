@@ -22,7 +22,7 @@ const Home = () => {
                 ref={textRef}
                 className="text-[#fafaff] text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium max-w-[90vw] w-full text-center break-words leading-tight"
             >
-                {"MAIS LEADS,MAIS VENDAS.".split("").map((char, index) => (
+                {"MAIS LEADS, MAIS VENDAS.".split("").map((char, index) => (
                     <span key={`line1-${index}`} className="inline">
                         {char === " " ? "\u00A0" : char}
                     </span>

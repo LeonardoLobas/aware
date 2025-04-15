@@ -9,8 +9,8 @@ export const animateImageScroll = (element: HTMLElement) => {
         { y: "100%" },
         {
             y: "0%",
-            duration: 2,
-            ease: "expo.out",
+            duration: 1,
+            ease: "sine.out",
             scrollTrigger: {
                 trigger: element,
                 start: "top bottom", // quando o topo do elemento encostar no final da viewport

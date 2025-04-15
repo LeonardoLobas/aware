@@ -6,8 +6,8 @@ export const animateImageTarget = (element: HTMLElement) => {
         { y: "100%" },
         {
             y: "0%",
-            duration: 2,
-            ease: "expo.out",
+            duration: 1,
+            ease: "sine.out",
         }
     );
 };

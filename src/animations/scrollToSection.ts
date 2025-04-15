@@ -12,7 +12,7 @@ export const scrollToSection = (targetId: string) => {
             y: target,
             offsetY: 0,
         },
-        ease: "expo.out",
+        ease: "sine.out",
         onComplete: () => {
             history.replaceState(null, "", targetId);
             window.dispatchEvent(new HashChangeEvent("hashchange")); // <-- 🔥 Isso dispara o evento que o componente escuta

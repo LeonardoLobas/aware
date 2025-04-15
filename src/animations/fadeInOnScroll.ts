@@ -13,11 +13,11 @@ export const fadeInOnScroll = (element: HTMLElement | null) => {
         {
             opacity: 1,
             y: 0,
-            duration: 1,
+            duration: 2,
             ease: "power2.out",
             scrollTrigger: {
                 trigger: element,
-                start: "top 80%",
+                start: "top 100%",
                 toggleActions: "play none none reverse",
             },
         }

@@ -9,11 +9,11 @@ export const scrollToSection = (targetId: string) => {
     if (!target) return;
 
     gsap.to(window, {
-        duration: 1,
+        duration: 2,
         scrollTo: {
             y: target,
             offsetY: 0, // caso tenha um navbar fixa, ajusta aqui
         },
-        ease: "back",
+        ease: "expo.out",
     });
 };

@@ -1,20 +1,30 @@
 import React, { useEffect, useRef } from "react";
-import { fadeInOnScroll } from "../animations/fadeInOnScroll";
+
+import { animateImagem } from "../animations/animteImage";
+import imgSobre from "../assets/sobre.jpg";
 
 const Sobre = () => {
-    const ref = useRef<HTMLDivElement>(null);
+    const imgRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
-        fadeInOnScroll(ref.current);
+        if (imgRef.current) {
+            animateImagem(imgRef.current);
+        }
     }, []);
 
     return (
         <section
             id="sobre"
-            ref={ref}
-            className="min-h-screen flex items-center justify-center bg-[#262626] text-black"
+            className="min-h-screen flex items-center justify-center bg-black text-white relative overflow-hidden"
         >
-            <h2 className="text-4xl">Seção Sobre</h2>
+            <div className="absolute bottom-0 left-0 right-0">
+                <img
+                    ref={imgRef}
+                    src={imgSobre}
+                    alt="Imagem sobre"
+                    className="w-full"
+                />
+            </div>
         </section>
     );
 };

@@ -3,14 +3,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const animateImagem = (element: HTMLElement) => {
+export const animateImageScroll = (element: HTMLElement) => {
     gsap.fromTo(
         element,
         { y: "100%" },
         {
             y: "0%",
             duration: 2,
-            ease: "power3.out",
+            ease: "expo.out",
             scrollTrigger: {
                 trigger: element,
                 start: "top bottom", // quando o topo do elemento encostar no final da viewport

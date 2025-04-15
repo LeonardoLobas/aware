@@ -1,15 +1,27 @@
-import React, { useEffect, useRef } from "react";
-
-import { animateImagem } from "../animations/animteImage";
+import { useEffect, useRef } from "react";
+import { animateImageScroll } from "../animations/animateImageScroll";
+import { animateImageTarget } from "../animations/animateImageTarget";
 import imgSobre from "../assets/sobre.jpg";
 
 const Sobre = () => {
     const imgRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
-        if (imgRef.current) {
-            animateImagem(imgRef.current);
-        }
+        const runAnimation = () => {
+            if (!imgRef.current) return;
+
+            const hash = window.location.hash;
+            if (hash === "#sobre") {
+                animateImageTarget(imgRef.current);
+            } else {
+                animateImageScroll(imgRef.current);
+            }
+        };
+
+        runAnimation(); // Executa ao montar
+
+        window.addEventListener("hashchange", runAnimation);
+        return () => window.removeEventListener("hashchange", runAnimation);
     }, []);
 
     return (

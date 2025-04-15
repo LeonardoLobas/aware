@@ -20,7 +20,7 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const scrollY = window.scrollY;
-            const offset = 100; // Ajuste conforme altura da navbar
+            const offset = 100;
 
             const index = navItems.findIndex(({ href }) => {
                 const el = document.querySelector(href);
@@ -32,10 +32,18 @@ const Navbar = () => {
                 );
             });
 
-            if (index !== -1) setActiveIndex(index);
+            if (index !== -1) {
+                setActiveIndex(index);
+                const currentHref = navItems[index].href;
+                const currentHash = window.location.hash;
+
+                if (currentHash !== currentHref) {
+                    history.replaceState(null, "", currentHref);
+                }
+            }
         };
 
-        handleScroll(); // Garante que funcione on load
+        handleScroll();
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
@@ -57,11 +65,7 @@ const Navbar = () => {
                                 onClick={(e) => {
                                     e.preventDefault();
                                     scrollToSection(item.href);
-                                    window.history.pushState(
-                                        null,
-                                        "",
-                                        item.href
-                                    ); // <-- Isso atualiza a URL sem recarregar
+                                    // ❌ NÃO atualiza hash aqui!
                                 }}
                             >
                                 <a href={item.href}>{item.name}</a>

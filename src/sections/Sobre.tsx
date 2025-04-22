@@ -1,40 +1,68 @@
 import { useEffect, useRef } from "react";
-import { animateImageScroll } from "../animations/animateImageScroll";
 import { animateImageTarget } from "../animations/animateImageTarget";
+import { animateImageScroll } from "../animations/animateImageScroll";
 import imgSobre from "../assets/sobre.jpg";
 
 const Sobre = () => {
     const imgRef = useRef<HTMLImageElement>(null);
+    const animationDone = useRef(false); // flag de controle
 
     useEffect(() => {
-        const runAnimation = () => {
-            if (!imgRef.current) return;
+        const imgEl = imgRef.current;
+        if (!imgEl) {
+            console.error("Imagem não encontrada no DOM");
+            return;
+        }
 
-            const hash = window.location.hash;
-            if (hash === "#sobre") {
+        // Se for navegação via hash
+        const hash = window.location.hash;
+        if (hash === "#sobre" && !animationDone.current) {
+            console.log("Executando animateImageTarget via hash");
+            animateImageTarget(imgEl);
+            animationDone.current = true;
+        }
+
+        // Se o hash mudar para #sobre
+        const handleHashChange = () => {
+            const newHash = window.location.hash;
+            if (
+                newHash === "#sobre" &&
+                !animationDone.current &&
+                imgRef.current
+            ) {
+                console.log("Executando animateImageTarget via hashchange");
                 animateImageTarget(imgRef.current);
-            } else {
-                animateImageScroll(imgRef.current);
+                animationDone.current = true;
             }
         };
 
-        runAnimation(); // Executa ao montar
+        window.addEventListener("hashchange", handleHashChange);
 
-        window.addEventListener("hashchange", runAnimation);
-        return () => window.removeEventListener("hashchange", runAnimation);
+        // Ativa scroll apenas se ainda não tiver sido animado via hash
+        if (!animationDone.current) {
+            animateImageScroll(imgEl, () => {
+                animationDone.current = true;
+            });
+        }
+
+        return () => {
+            window.removeEventListener("hashchange", handleHashChange);
+        };
     }, []);
 
     return (
         <section
             id="sobre"
-            className="min-h-screen flex items-center justify-center bg-black text-white relative overflow-hidden"
+            className="min-h-screen w-full flex items-center justify-center bg-black text-white overflow-hidden"
         >
-            <div className="absolute bottom-0 left-0 right-0">
+            <div className="relative w-screen h-screen overflow-hidden">
                 <img
                     ref={imgRef}
                     src={imgSobre}
                     alt="Imagem sobre"
-                    className="w-full"
+                    className="absolute top-0 left-0 w-screen h-screen object-cover object-center"
+                    onError={() => console.error("Erro ao carregar imagem")}
+                    onLoad={() => console.log("Imagem carregada com sucesso")}
                 />
             </div>
         </section>

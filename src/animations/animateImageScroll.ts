@@ -1,20 +1,28 @@
+// animations/animateImageScroll.ts
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const animateImageScroll = (element: HTMLElement) => {
+export const animateImageScroll = (
+    element: HTMLElement,
+    onStart?: () => void
+) => {
     gsap.fromTo(
         element,
-        { y: "100%" },
+        { y: "30%", opacity: 0 },
         {
             y: "0%",
+            opacity: 1,
             duration: 1,
-            ease: "sine.out",
+            ease: "power2.out",
             scrollTrigger: {
                 trigger: element,
-                start: "top bottom", // quando o topo do elemento encostar no final da viewport
-                toggleActions: "play none none none", // só executa uma vez
+                start: "top 80%",
+                toggleActions: "play none none none",
+                onEnter: () => {
+                    if (onStart) onStart(); // marca a flag como true
+                },
             },
         }
     );

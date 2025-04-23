@@ -10,18 +10,16 @@ export const animateImageScroll = (
 ) => {
     gsap.fromTo(
         element,
-        { y: "30%", opacity: 0 },
+        { y: "70%" },
         {
             y: "0%",
-            opacity: 1,
-            duration: 1,
-            ease: "power2.out",
+            duration: 0.6,
+            ease: "sine.out",
             scrollTrigger: {
                 trigger: element,
-                start: "top 80%",
-                toggleActions: "play none none none",
+                start: "top bottom",
                 onEnter: () => {
-                    if (onStart) onStart(); // marca a flag como true
+                    if (onStart) onStart();
                 },
             },
         }

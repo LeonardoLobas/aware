@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { scrollToSection } from "../animations/scrollToSection";
 
 interface NavItemType {
@@ -65,7 +65,6 @@ const Navbar = () => {
                                 onClick={(e) => {
                                     e.preventDefault();
                                     scrollToSection(item.href);
-                                    // ❌ NÃO atualiza hash aqui!
                                 }}
                             >
                                 <a href={item.href}>{item.name}</a>

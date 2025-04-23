@@ -6,6 +6,12 @@ gsap.registerPlugin(ScrollToPlugin);
 export const scrollToSection = (targetId: string) => {
     const target = document.querySelector(targetId);
     if (!target) return;
+
+    const hashChangeListener = (event: HashChangeEvent) => {
+        event.preventDefault();
+    };
+    window.addEventListener("hashchange", hashChangeListener);
+
     gsap.to(window, {
         duration: 1,
         scrollTo: {
@@ -15,7 +21,10 @@ export const scrollToSection = (targetId: string) => {
         ease: "sine.out",
         onComplete: () => {
             history.replaceState(null, "", targetId);
-            window.dispatchEvent(new HashChangeEvent("hashchange")); // <-- 🔥 Isso dispara o evento que o componente escuta
+
+            window.removeEventListener("hashchange", hashChangeListener);
+
+            window.dispatchEvent(new HashChangeEvent("hashchange"));
         },
     });
 };

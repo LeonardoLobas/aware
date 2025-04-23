@@ -12,3 +12,6 @@ declare module "*.svg" {
     const content: unknown;
     export default content;
 }
+
+// src/global.d.ts
+declare module "*.css";

@@ -10,7 +10,7 @@ export const animateImageScroll = (
 ) => {
     gsap.fromTo(
         element,
-        { y: "70%" },
+        { y: "50%" },
         {
             y: "0%",
             duration: 1,

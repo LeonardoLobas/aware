@@ -13,7 +13,7 @@ export const animateImageScroll = (
         { y: "70%" },
         {
             y: "0%",
-            duration: 0.6,
+            duration: 1,
             ease: "sine.out",
             scrollTrigger: {
                 trigger: element,

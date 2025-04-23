@@ -6,7 +6,6 @@ import imgSobre from "../assets/sobre.jpg";
 const Sobre = () => {
     const imgRef = useRef<HTMLImageElement>(null);
     const [animationTriggered, setAnimationTriggered] = useState(false);
-    const [hashChanged, setHashChanged] = useState(false);
 
     useEffect(() => {
         const imgEl = imgRef.current;
@@ -26,13 +25,8 @@ const Sobre = () => {
         };
 
         const handleHashChange = () => {
-            if (
-                window.location.hash === "#sobre" &&
-                !animationTriggered &&
-                !hashChanged
-            ) {
+            if (window.location.hash === "#sobre" && !animationTriggered) {
                 runTarget();
-                setHashChanged(true);
             } else if (
                 window.location.hash !== "#sobre" &&
                 !animationTriggered
@@ -48,7 +42,7 @@ const Sobre = () => {
         return () => {
             window.removeEventListener("hashchange", handleHashChange);
         };
-    }, [animationTriggered, hashChanged]);
+    }, [animationTriggered]);
 
     return (
         <section

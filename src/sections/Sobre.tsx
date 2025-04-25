@@ -1,34 +1,34 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { animateImageTarget } from "../animations/animateImageTarget";
 import { animateImageScroll } from "../animations/animateImageScroll";
 import imgSobre from "../assets/sobre.jpg";
 
 const Sobre = () => {
     const imgRef = useRef<HTMLImageElement>(null);
-    const [animationTriggered, setAnimationTriggered] = useState(false);
+
+    let alreadyAnimated = false;
 
     useEffect(() => {
-        const imgEl = imgRef.current;
-        if (!imgEl) {
-            return;
-        }
-
-        const runTarget = () => {
-            animateImageTarget(imgEl);
-            setAnimationTriggered(true);
+        const handleHashChange = () => {
+            if (alreadyAnimated) return;
+            const hash = window.location.hash;
+            if (hash === "#sobre") {
+                animateImageTarget(imgRef.current!);
+                console.log("executou target");
+            } else {
+                animateImageScroll(imgRef.current!);
+                console.log("executou scroll");
+            }
+            alreadyAnimated = true;
         };
 
-        const runScroll = () => {
-            animateImageScroll(imgRef.current!);
-            setAnimationTriggered(true);
-        };
+        window.addEventListener("hashchange", handleHashChange);
+        handleHashChange();
 
-        if (window.location.hash === "#sobre" && !animationTriggered) {
-            runTarget();
-        } else if (window.location.hash !== "#sobre" && !animationTriggered) {
-            runScroll();
-        }
-    }, [animationTriggered]);
+        return () => {
+            window.removeEventListener("hashchange", handleHashChange);
+        };
+    }, []);
 
     return (
         <section

@@ -8,11 +8,12 @@ export const scrollToSection = (targetId: string) => {
     if (!target) return;
 
     gsap.to(window, {
-        duration: 1,
+        duration: 1.2,
         scrollTo: {
             y: target,
             offsetY: 0,
+            autoKill: true,
         },
-        ease: "sine.out",
+        ease: "power2.inOut",
     });
 };

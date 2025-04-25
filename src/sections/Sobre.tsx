@@ -6,11 +6,12 @@ import imgSobre from "../assets/sobre.jpg";
 const Sobre = () => {
     const imgRef = useRef<HTMLImageElement>(null);
 
-    let alreadyAnimated = false;
+    const alreadyAnimated = useRef(false);
 
     useEffect(() => {
-        const handleHashChange = () => {
-            if (alreadyAnimated) return;
+        const handleAnimation = () => {
+            if (alreadyAnimated.current) return;
+            alreadyAnimated.current = true;
             const hash = window.location.hash;
             if (hash === "#sobre") {
                 animateImageTarget(imgRef.current!);
@@ -19,7 +20,13 @@ const Sobre = () => {
                 animateImageScroll(imgRef.current!);
                 console.log("executou scroll");
             }
-            alreadyAnimated = true;
+            setTimeout(() => {
+                alreadyAnimated.current = false;
+            }, 100);
+        };
+
+        const handleHashChange = () => {
+            setTimeout(handleAnimation, 50);
         };
 
         window.addEventListener("hashchange", handleHashChange);

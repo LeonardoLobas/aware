@@ -19,9 +19,8 @@ const Sobre = () => {
         };
 
         const runScroll = () => {
-            animateImageScroll(imgEl, () => {
-                setAnimationTriggered(true);
-            });
+            animateImageScroll(imgRef.current!);
+            setAnimationTriggered(true);
         };
 
         if (window.location.hash === "#sobre" && !animationTriggered) {

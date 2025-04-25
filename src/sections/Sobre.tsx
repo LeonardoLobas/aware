@@ -24,24 +24,11 @@ const Sobre = () => {
             });
         };
 
-        const handleHashChange = () => {
-            if (window.location.hash === "#sobre" && !animationTriggered) {
-                runTarget();
-            } else if (
-                window.location.hash !== "#sobre" &&
-                !animationTriggered
-            ) {
-                runScroll();
-            }
-        };
-
-        handleHashChange();
-
-        window.addEventListener("hashchange", handleHashChange);
-
-        return () => {
-            window.removeEventListener("hashchange", handleHashChange);
-        };
+        if (window.location.hash === "#sobre" && !animationTriggered) {
+            runTarget();
+        } else if (window.location.hash !== "#sobre" && !animationTriggered) {
+            runScroll();
+        }
     }, [animationTriggered]);
 
     return (

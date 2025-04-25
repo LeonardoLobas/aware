@@ -4,10 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const animateImageScroll = (
-    element: HTMLElement,
-    onStart?: () => void
-) => {
+export const animateImageScroll = (element: HTMLElement) => {
     gsap.fromTo(
         element,
         { y: "50%" },
@@ -18,9 +15,6 @@ export const animateImageScroll = (
             scrollTrigger: {
                 trigger: element,
                 start: "top bottom",
-                onEnter: () => {
-                    if (onStart) onStart();
-                },
             },
         }
     );

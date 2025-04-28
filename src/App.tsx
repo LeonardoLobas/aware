@@ -1,6 +1,8 @@
 import Home from "./sections/Home";
 import Sobre from "./sections/Sobre";
 import Navbar from "./components/navbar";
+import Servicos from "./sections/Servicos";
+import Contato from "./sections/Contato";
 
 function App() {
     return (
@@ -8,6 +10,8 @@ function App() {
             <Navbar />
             <Home />
             <Sobre />
+            <Servicos />
+            <Contato />
         </main>
     );
 }

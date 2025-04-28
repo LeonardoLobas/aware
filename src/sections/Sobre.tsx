@@ -40,7 +40,7 @@ const Sobre = () => {
     return (
         <section
             id="sobre"
-            className="min-h-screen w-full flex items-center justify-center bg-black text-white overflow-hidden"
+            className="min-h-screen w-full  flex flex-col items-center justify-center bg-black text-white overflow-hidden"
         >
             <div className="relative w-screen h-screen overflow-hidden">
                 <img

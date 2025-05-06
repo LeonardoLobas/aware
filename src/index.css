@@ -8,4 +8,22 @@
 }
 
 
-@import 'swiper/css'
+@import 'swiper/css';
+@import "swiper/css/pagination";
+
+.swiper-pagination-bullet {
+  background: white; /* cor das bolinhas */
+  opacity: 0.8;
+  width: 10px;
+  height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+  background: black; /* cor da bolinha ativa */
+}
+
+.swiper-pagination {
+  position: relative !important;
+  margin-top: 2rem;
+}
+

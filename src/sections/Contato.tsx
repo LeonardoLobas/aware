@@ -1,4 +1,3 @@
-import React from "react";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 
 const Contato = () => {

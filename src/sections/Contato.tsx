@@ -7,7 +7,7 @@ const Contato = () => {
             id="contato"
             className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-bl from-[#262626] to-[#989797] text-white overflow-hidden px-4"
         >
-            <div className="flex flex-col items-center gap-y-16 w-full max-w-7xl">
+            <div className="flex flex-col items-center gap-y-8 w-full max-w-7xl">
                 <div className="text-center w-full text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal border-b-2 border-amber-50 pb-4">
                     VOCÊ ESTÁ A UM CLIQUE
                     <br />
@@ -18,11 +18,18 @@ const Contato = () => {
                         ENTRE EM CONTATO CONOSCO
                     </span>
                 </div>
-                <footer className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center w-full pt-1 text-lg sm:text-xl md:text-2xl">
+                <footer className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center w-full text-base sm:text-lg md:text-xl p-4 sm:p-8">
                     {/* Localização */}
                     <div>
-                        <h2 className="font-bold mb-2">LOCALIZAÇÃO</h2>
-                        <a>
+                        <h2 className="font-bold mb-2 text-base sm:text-2xl">
+                            LOCALIZAÇÃO
+                        </h2>
+                        <a
+                            href="https://www.google.com/maps?q=Av.+Getúlio+Vargas,+731,+Cidade+Nova,+Porto+União,+SC"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block text-sm sm:text-base text-white hover:underline"
+                        >
                             Av. Getúlio Vargas, 731, Cidade Nova - Porto União -
                             SC
                         </a>
@@ -30,21 +37,24 @@ const Contato = () => {
 
                     {/* Contato */}
                     <div>
-                        <h2 className="font-bold mb-2">CONTATO</h2>
-                        <a>
-                            {" "}
-                            <link
-                                rel="stylesheet"
-                                href="awaresolucoes@gmail.com"
-                            />
+                        <h2 className="font-bold mb-2 text-base sm:text-2xl">
+                            CONTATO
+                        </h2>
+                        <a
+                            href="mailto:awaresolucoes@gmail.com"
+                            className="block text-sm sm:text-lg text-white hover:underline"
+                        >
+                            awaresolucoes@gmail.com
                         </a>
-                        <p>(42) 98442-7303</p>
+                        <p className="text-sm sm:text-lg">(42) 98442-7303</p>
                     </div>
 
                     {/* Redes Sociais */}
                     <div className="flex flex-col items-center">
-                        <h2 className="font-bold mb-2">REDES SOCIAIS</h2>
-                        <div className="flex gap-6 text-3xl justify-center">
+                        <h2 className="font-bold mb-2 text-base sm:text-2xl">
+                            REDES SOCIAIS
+                        </h2>
+                        <div className="flex gap-4 text-2xl sm:text-3xl justify-center">
                             <a
                                 href="https://instagram.com"
                                 target="_blank"

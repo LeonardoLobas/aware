@@ -56,7 +56,7 @@ const Servicos = () => {
                 backgroundSize: "cover",
             }}
         >
-            <div className="w-[90%] h-[350px] md:h-[400px] lg:h-[500px] flex flex-col items-center justify-between z-10 text-white backdrop-blur-sm p-6">
+            <div className="w-[90%] h-[350px] md:h-[400px] lg:h-[500px]  flex flex-col items-center transition-opacity   justify-between z-10 text-white backdrop-blur-sm p-6">
                 {selectedService ? (
                     <>
                         <h2 className="text-3xl font-light">
@@ -65,7 +65,7 @@ const Servicos = () => {
                         <p className="text-lg">{selectedService.desc}</p>
                         <button
                             onClick={() => setSelectedService(null)}
-                            className="px-6 py-2 bg-white text-black rounded hover:bg-gray-200"
+                            className="px-6 py-2 bg-white cursor-pointer text-black rounded hover:bg-gray-200"
                         >
                             Voltar
                         </button>
@@ -100,7 +100,7 @@ const Servicos = () => {
                             {slides.map((item) => (
                                 <SwiperSlide
                                     key={item.id}
-                                    className="flex justify-center"
+                                    className="flex justify-center "
                                 >
                                     <button
                                         onClick={() => setSelectedService(item)}
@@ -109,7 +109,7 @@ const Servicos = () => {
                                         <img
                                             src={item.img}
                                             alt={item.title}
-                                            className="w-full h-[350px] md:h-[400px] lg:h-[500px] object-cover "
+                                            className="w-full h-[350px] md:h-[400px] lg:h-[500px] object-cover rounded-xl "
                                         />
                                     </button>
                                 </SwiperSlide>

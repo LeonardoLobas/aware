@@ -26,9 +26,9 @@ const Home = () => {
                 ref={textRef}
                 className="text-[#fafaff] text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium max-w-[90vw] w-full text-center break-words leading-tight"
             >
-                {renderTextLine("MAIS LEADS, MAIS VENDAS.", "line1")}
+                {renderTextLine("TRANSFORME SEGUIDORES EM FÃS.", "line1")}
                 <br />
-                {renderTextLine("UM NOVO NÍVEL COM", "line2")}
+                {renderTextLine("SOCIAL MEDIA QUE MARCA.", "line2")}
                 <br />
                 <span
                     className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold leading-tight 

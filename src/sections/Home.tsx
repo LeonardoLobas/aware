@@ -20,7 +20,7 @@ const Home = () => {
     return (
         <section
             id="home"
-            className="min-h-screen w-full bg-gradient-to-bl from-[#262626] to-[#989797]  flex flex-col items-center justify-center"
+            className="min-h-screen w-full bg-gradient-to-bl from-[#262626] to-[#989797] flex flex-col items-center justify-center"
         >
             <div
                 ref={textRef}

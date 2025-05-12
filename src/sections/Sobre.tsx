@@ -1,46 +1,20 @@
 import { useEffect, useRef } from "react";
-import { animateImageTarget } from "../animations/animateImageTarget";
-import { animateImageScroll } from "../animations/animateImageScroll";
+import { animateImage } from "../animations/animateImage";
 import imgSobre from "../assets/sobre.jpg";
 
 const Sobre = () => {
     const imgRef = useRef<HTMLImageElement>(null);
 
-    const alreadyAnimated = useRef(false);
-
     useEffect(() => {
-        const handleAnimation = () => {
-            if (alreadyAnimated.current) return;
-            alreadyAnimated.current = true;
-            const hash = window.location.hash;
-            if (hash === "#sobre") {
-                animateImageTarget(imgRef.current!);
-                console.log("executou target");
-            } else {
-                animateImageScroll(imgRef.current!);
-                console.log("executou scroll");
-            }
-            setTimeout(() => {
-                alreadyAnimated.current = false;
-            }, 100);
-        };
-
-        const handleHashChange = () => {
-            setTimeout(handleAnimation, 50);
-        };
-
-        window.addEventListener("hashchange", handleHashChange);
-        handleHashChange();
-
-        return () => {
-            window.removeEventListener("hashchange", handleHashChange);
-        };
+        if (imgRef.current) {
+            animateImage(imgRef.current);
+        }
     }, []);
 
     return (
         <section
             id="sobre"
-            className="min-h-screen w-full  flex flex-col items-center justify-center bg-black text-white overflow-hidden"
+            className="min-h-screen w-full flex flex-col items-center justify-center bg-black text-white overflow-hidden"
         >
             <div className="relative w-screen h-screen overflow-hidden">
                 <img

@@ -110,6 +110,7 @@ const Servicos = () => {
                                             src={item.img}
                                             alt={item.title}
                                             className="w-full h-[350px] md:h-[400px] lg:h-[500px] object-cover rounded-xl "
+                                            loading="lazy"
                                         />
                                     </button>
                                 </SwiperSlide>

@@ -1,5 +1,3 @@
-import gsap from "gsap";
-
 export const animateImageTarget = (element: HTMLElement) => {
     gsap.fromTo(
         element,

@@ -1,12 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { scrollToSection } from "../animations/scrollToSection";
 
-interface NavItemType {
-    name: string;
-    href: string;
-}
-
-const navItems: NavItemType[] = [
+const navItems = [
     { name: "HOME", href: "#home" },
     { name: "SOBRE", href: "#sobre" },
     { name: "SERVIÇOS", href: "#servicos" },
@@ -17,36 +12,36 @@ const Navbar = () => {
     const [activeIndex, setActiveIndex] = useState<number | null>(0);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-            const offset = 100;
+    const handleScroll = useCallback(() => {
+        const scrollY = window.scrollY;
+        const offset = 100;
 
-            const index = navItems.findIndex(({ href }) => {
-                const el = document.querySelector(href);
-                if (!el) return false;
-                const top = (el as HTMLElement).offsetTop;
-                const height = (el as HTMLElement).offsetHeight;
-                return (
-                    scrollY >= top - offset && scrollY < top + height - offset
-                );
-            });
+        const index = navItems.findIndex(({ href }) => {
+            const el = document.getElementById(href.replace("#", ""));
+            if (!el) return false;
 
-            if (index !== -1) {
-                setActiveIndex(index);
-                const currentHref = navItems[index].href;
-                const currentHash = window.location.hash;
+            const { offsetTop, offsetHeight } = el;
+            return (
+                scrollY >= offsetTop - offset &&
+                scrollY < offsetTop + offsetHeight - offset
+            );
+        });
 
-                if (currentHash !== currentHref) {
-                    history.replaceState(null, "", currentHref);
-                }
+        if (index !== -1) {
+            setActiveIndex(index);
+
+            const currentHref = navItems[index].href;
+            if (window.location.hash !== currentHref) {
+                history.replaceState(null, "", currentHref);
             }
-        };
+        }
+    }, []);
 
+    useEffect(() => {
         handleScroll();
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [handleScroll]);
 
     return (
         <nav className="fixed left-1/2 -translate-x-1/2 mt-8 w-full max-w-sm z-50 bg-white/5 backdrop-blur-xs shadow-md">

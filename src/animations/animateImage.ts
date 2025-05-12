@@ -4,7 +4,6 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export const animateImage = (element: HTMLElement) => {
-    // Caso o hash seja "#sobre", animamos diretamente (sem scroll)
     if (window.location.hash === "#sobre") {
         gsap.fromTo(
             element,

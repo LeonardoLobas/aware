@@ -1,17 +1,28 @@
-import Home from "./sections/Home";
-import Sobre from "./sections/Sobre";
+import React, { Suspense } from "react";
 import Navbar from "./components/navbar";
-import Servicos from "./sections/Servicos";
-import Contato from "./sections/Contato";
+import Home from "./sections/Home";
+
+// Lazy load dos componentes que aparecem depois da dobra
+const Sobre = React.lazy(() => import("./sections/Sobre"));
+const Servicos = React.lazy(() => import("./sections/Servicos"));
+const Contato = React.lazy(() => import("./sections/Contato"));
 
 function App() {
     return (
         <main className="w-full min-h-screen flex flex-col">
             <Navbar />
             <Home />
-            <Sobre />
-            <Servicos />
-            <Contato />
+            <Suspense
+                fallback={
+                    <div className="text-white text-center p-8">
+                        Carregando...
+                    </div>
+                }
+            >
+                <Sobre />
+                <Servicos />
+                <Contato />
+            </Suspense>
         </main>
     );
 }

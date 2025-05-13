@@ -1,5 +1,3 @@
-// src/animations/textHomeAnimation.tsx
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 interface IProps {
@@ -16,11 +14,6 @@ const TypingAnimation = ({
     onComplete,
 }: IProps) => {
     const letters = Array.from(text);
-    const [show, setShow] = useState(false);
-
-    useEffect(() => {
-        setShow(true);
-    }, []);
 
     const container = {
         hidden: { opacity: 1 },
@@ -38,29 +31,25 @@ const TypingAnimation = ({
         visible: {
             opacity: 1,
             transition: {
-                duration: 0.01,
+                duration: 0.05, // ajuste o tempo de transição
             },
         },
     };
 
     return (
-        show && (
-            <motion.div
-                className={`blinking-underline inline-block ${className}`}
-                variants={container}
-                initial="hidden"
-                animate="visible"
-                onAnimationComplete={() => {
-                    onComplete?.();
-                }}
-            >
-                {letters.map((char, index) => (
-                    <motion.span key={index} variants={child}>
-                        {char}
-                    </motion.span>
-                ))}
-            </motion.div>
-        )
+        <motion.div
+            className={`blinking-underline inline-block ${className}`}
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            onAnimationComplete={() => onComplete?.()}
+        >
+            {letters.map((char, index) => (
+                <motion.span key={index} variants={child}>
+                    {char}
+                </motion.span>
+            ))}
+        </motion.div>
     );
 };
 

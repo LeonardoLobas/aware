@@ -28,7 +28,7 @@ const Home = () => {
             >
                 {renderTextLine("TRANSFORME SEGUIDORES EM FÃS.", "line1")}
                 <br />
-                {renderTextLine("SOCIAL MEDIA QUE MARCA.", "line2")}
+                {renderTextLine("SOCIAL MEDIA QUE ENCANTA.", "line2")}
                 <br />
                 <span
                     className="block text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold leading-tight 

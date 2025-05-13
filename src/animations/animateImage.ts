@@ -18,21 +18,11 @@ export const animateImage = (element: HTMLElement) => {
 
     gsap.killTweensOf(element);
 
-    gsap.set(element, {
-        y: "0%",
-        opacity: 0,
-    });
-
     const fadeInOnly = () => {
         gsap.killTweensOf(element);
         gsap.to(element, {
-            keyframes: [
-                { opacity: 0.2, duration: 0.4 },
-                { opacity: 0.4, duration: 0.4 },
-                { opacity: 0.6, duration: 0.4 },
-                { opacity: 1, duration: 0.6 },
-            ],
-            ease: "none",
+            duration: 1.8,
+            ease: "power1.inOut", // ou "power1.inOut" para algo mais natural
         });
     };
 

@@ -40,6 +40,7 @@ const Sobre = () => {
         >
             <div className="relative w-screen h-screen overflow-hidden">
                 <img
+                    will-chage
                     loading="lazy"
                     ref={imgRef}
                     id="sobre-img"

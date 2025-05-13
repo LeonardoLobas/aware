@@ -26,9 +26,13 @@ export const animateImage = (element: HTMLElement) => {
     const fadeInOnly = () => {
         gsap.killTweensOf(element);
         gsap.to(element, {
-            opacity: 1,
-            duration: 1.2,
-            ease: "power2.out",
+            keyframes: [
+                { opacity: 0.2, duration: 0.4 },
+                { opacity: 0.4, duration: 0.4 },
+                { opacity: 0.6, duration: 0.4 },
+                { opacity: 1, duration: 0.6 },
+            ],
+            ease: "none",
         });
     };
 
@@ -40,8 +44,8 @@ export const animateImage = (element: HTMLElement) => {
             {
                 y: "0%",
                 opacity: 1,
-                duration: 1.6,
-                ease: "power2.out",
+                duration: 1.8,
+                ease: "power3.out",
             }
         );
     };
@@ -61,7 +65,7 @@ export const animateImage = (element: HTMLElement) => {
         } else {
             const trigger = ScrollTrigger.create({
                 trigger: "#sobre",
-                start: "top 80%",
+                start: "top 95%",
                 once: true,
                 markers: false,
                 onEnter: () => animateFromScroll(),

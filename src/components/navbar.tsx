@@ -44,9 +44,9 @@ const Navbar = () => {
     }, [handleScroll]);
 
     return (
-        <nav className="fixed left-1/2 -translate-x-1/2 mt-8 w-full max-w-sm z-50 bg-white/5 backdrop-blur-xs shadow-md">
+        <nav className="fixed left-1/2 -translate-x-1/2 mt-8 w-full max-w-xs z-50 shadow-md bg-[#262626]/50 backdrop-blur-xs">
             <div className="px-4 py-3 flex justify-center items-center">
-                <ul className="flex space-x-6 text-[#fafaff] font-md">
+                <ul className="flex space-x-3 text-[#fafaff] font-md">
                     {navItems.map((item, index) => {
                         const isActive =
                             hoveredIndex === index || activeIndex === index;

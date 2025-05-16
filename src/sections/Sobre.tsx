@@ -44,7 +44,7 @@ const Sobre = () => {
         >
             <div className="absolute inset-0 bg-white/50 z-0" />{" "}
             {/* camada escura */}
-            <div className=" z-10 w-full max-w-5xl mt-66 px-4">
+            <div className=" z-10 w-full  mt-66 px-4">
                 <Swiper
                     modules={[Pagination, Navigation, Autoplay]}
                     slidesPerView={1}
@@ -57,11 +57,14 @@ const Sobre = () => {
                     className="w-full h-full"
                 >
                     <SwiperSlide>
-                        <div className="flex flex-col items-center justify-center h-screen text-center">
+                        <div className="flex flex-col w-full items-center justify-center h-screen text-center">
                             <p className="text-xl text-[#262626] sm:text-4xl font-semibold uppercase">
                                 Desde 2021, a Aware Soluções vem redefinindo o
                                 padrão da publicidade com estratégia,
-                                criatividade e coragem.
+                                criatividade e coragem. Somos uma agência de
+                                Porto União - SC que acredita em resultados
+                                concretos, relações transparentes e ideias que
+                                provocam impacto.
                             </p>
                         </div>
                     </SwiperSlide>

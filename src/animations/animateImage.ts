@@ -22,7 +22,7 @@ export const animateImage = (element: HTMLElement) => {
         gsap.killTweensOf(element);
         gsap.to(element, {
             duration: 1.8,
-            ease: "power1.inOut", // ou "power1.inOut" para algo mais natural
+            ease: "power3.out",
         });
     };
 
@@ -30,7 +30,7 @@ export const animateImage = (element: HTMLElement) => {
         gsap.killTweensOf(element);
         gsap.fromTo(
             element,
-            { y: "40%", opacity: 0 },
+            { y: "40%", opacity: 1 },
             {
                 y: "0%",
                 opacity: 1,

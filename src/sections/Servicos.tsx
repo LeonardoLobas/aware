@@ -9,6 +9,7 @@ import {
 import testeImg from "../assets/teste.jpg";
 import testeImg1 from "../assets/teste1.jpg";
 import testeImg3 from "../assets/teste3.jpg";
+import texturaServicos from "../assets/texturaServicos.png";
 
 import { useState } from "react";
 
@@ -50,7 +51,7 @@ const Servicos = () => {
             style={{
                 backgroundImage: selectedService
                     ? `url(${selectedService.img})`
-                    : "linear-gradient(to bottom right, #989797, #EBEBEB)",
+                    : `url(${texturaServicos})`,
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",

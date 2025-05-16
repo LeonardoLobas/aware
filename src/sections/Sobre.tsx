@@ -37,11 +37,11 @@ const Sobre = () => {
         <section
             ref={imgRef}
             id="sobre"
-            className="min-h-screen w-full flex flex-col items-center justify-center text-white bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${imgSobre})` }}
-        >
-            {/* Conteúdo interno opcional aqui */}
-        </section>
+            className="min-h-screen w-full flex flex-col  items-center justify-center text-white bg-contain bg-top md:bg-center md:bg-cover bg-no-repeat"
+            style={{
+                backgroundImage: `url(${imgSobre})`,
+            }}
+        ></section>
     );
 };
 

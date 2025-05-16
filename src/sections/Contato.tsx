@@ -1,10 +1,12 @@
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import texturaContato from "../assets/texturaContato.png";
 
 const Contato = () => {
     return (
         <section
             id="contato"
-            className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-bl from-[#262626] to-[#989797] text-white overflow-hidden px-4"
+            className="min-h-screen w-full flex flex-col items-center justify-center  text-white overflow-hidden px-4"
+            style={{ backgroundImage: `url(${texturaContato})` }}
         >
             <div className="flex flex-col items-center gap-y-8 w-full max-w-7xl">
                 <div className="text-center w-full text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal border-b-2 border-amber-50 pb-4">

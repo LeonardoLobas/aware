@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TypingAnimation from "../animations/textHomeAnimation";
+import texturaHome from "../assets/texturaHome.png";
 
 const Home = () => {
     const [step, setStep] = useState(0);
@@ -7,7 +8,8 @@ const Home = () => {
     return (
         <section
             id="home"
-            className="min-h-screen w-full bg-gradient-to-bl from-[#262626] to-[#989797] flex flex-col items-center justify-center"
+            className="min-h-screen w-full  flex flex-col items-center justify-center"
+            style={{ backgroundImage: `url(${texturaHome})` }}
         >
             <div className="text-[#fafaff] text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium max-w-[90vw] w-full text-center break-words leading-tight space-y-4 h-[20rem] flex flex-col justify-center">
                 {/* Linha 1 */}
@@ -40,7 +42,7 @@ const Home = () => {
                         text="AWARE"
                         interval={100}
                         className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold leading-tight 
-              bg-gradient-to-bl from-[#ffffff] from-10% to-[#000000] to-65% bg-clip-text text-transparent"
+              bg-gradient-to-bl from-[#fafaff] from-10% to-[#000000] to-65% bg-clip-text text-transparent"
                     />
                 ) : (
                     <div className="invisible text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold leading-tight">

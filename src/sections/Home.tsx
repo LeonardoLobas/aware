@@ -37,7 +37,7 @@ const Home = () => {
                 )}
 
                 {/* Linha 3 */}
-                {step >= 2 ? (
+                {/* {step >= 2 ? (
                     <TypingAnimation
                         text="AWARE"
                         interval={100}
@@ -48,7 +48,7 @@ const Home = () => {
                     <div className="invisible text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold leading-tight">
                         AWARE
                     </div>
-                )}
+                )} */}
             </div>
         </section>
     );

@@ -59,7 +59,8 @@ const Navbar = () => {
                                 onMouseLeave={() => setHoveredIndex(null)}
                             >
                                 <a
-                                    href={item.href}
+                                    role="button"
+                                    className="cursor-pointer"
                                     onClick={(e) => {
                                         e.preventDefault();
                                         scrollToSection(item.href);
@@ -67,6 +68,7 @@ const Navbar = () => {
                                 >
                                     {item.name}
                                 </a>
+
                                 <span
                                     className={`absolute left-0 -bottom-1 h-0.5 bg-[#fafaff] transition-all duration-300 ${
                                         isActive ? "w-full" : "w-0"

@@ -57,12 +57,16 @@ const Navbar = () => {
                                 className="relative cursor-pointer"
                                 onMouseEnter={() => setHoveredIndex(index)}
                                 onMouseLeave={() => setHoveredIndex(null)}
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    scrollToSection(item.href);
-                                }}
                             >
-                                <a href={item.href}>{item.name}</a>
+                                <a
+                                    href={item.href}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        scrollToSection(item.href);
+                                    }}
+                                >
+                                    {item.name}
+                                </a>
                                 <span
                                     className={`absolute left-0 -bottom-1 h-0.5 bg-[#fafaff] transition-all duration-300 ${
                                         isActive ? "w-full" : "w-0"

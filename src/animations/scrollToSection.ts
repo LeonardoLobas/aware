@@ -5,6 +5,5 @@ export const scrollToSection = (targetId: string) => {
 
     target.scrollIntoView({
         behavior: "smooth",
-        block: "start",
     });
 };

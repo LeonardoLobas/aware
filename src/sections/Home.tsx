@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TypingAnimation from "../animations/textHomeAnimation";
-import texturaHome from "../assets/texturaHome.png";
+import texturaHome from "../assets/texturaImg.png";
 
 const Home = () => {
     const [step, setStep] = useState(0);
@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <section
             id="home"
-            className="min-h-screen w-full  flex flex-col items-center justify-center"
+            className="min-h-screen w-full  flex  items-center justify-center"
             style={{ backgroundImage: `url(${texturaHome})` }}
         >
             <div className="text-[#fafaff] text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium max-w-[90vw] w-full text-center break-words leading-tight space-y-4 h-[20rem] flex flex-col justify-center">

@@ -1,11 +1,11 @@
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
-import texturaContato from "../assets/texturaContato.png";
+import texturaContato from "../assets/texturaImg.png";
 
 const Contato = () => {
     return (
         <section
             id="contato"
-            className="min-h-screen w-full flex flex-col items-center justify-center  text-white overflow-hidden px-4"
+            className="min-h-screen w-full flex  items-center justify-center  text-white overflow-hidden px-4"
             style={{ backgroundImage: `url(${texturaContato})` }}
         >
             <div className="flex flex-col items-center gap-y-8 w-full max-w-7xl">
@@ -20,7 +20,6 @@ const Contato = () => {
                     </span>
                 </div>
                 <footer className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center w-full text-base sm:text-lg md:text-xl p-4 sm:p-8">
-                    {/* Localização */}
                     <div>
                         <h2 className="font-bold mb-2 text-base sm:text-2xl">
                             LOCALIZAÇÃO
